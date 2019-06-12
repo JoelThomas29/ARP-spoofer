@@ -4,9 +4,9 @@
 import scapy.all as scapy
 import subprocess
 
-def IP_forwarding():
+def IP_forwarding(value):
     # Enabling IP forwarding before starting the attack
-    subprocess.call("echo 1 > /proc/sys/net/ipv4/ip_forward", shell=True)
+    subprocess.call("echo %s > /proc/sys/net/ipv4/ip_forward" %value, shell=True)
 
 def scan(ip):
     # IP Packet
