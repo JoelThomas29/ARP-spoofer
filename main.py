@@ -51,7 +51,7 @@ try:
     from spoof_function import restore
     from spoof_function import IP_forwarding
 
-    IP_forwarding()  # Enabling IP forwarding
+    IP_forwarding("1")  # Enabling IP forwarding
 
     ip_ap = option.gateway
     ip_victim = option.victim
@@ -76,6 +76,9 @@ except KeyboardInterrupt:
     # By default this will be restored on its own after a while, but we do this just as a precautionary measure
     restore(ip_victim, ip_ap)
     restore(ip_ap, ip_victim)
+
+    IP_forwarding("0")  # Disabling IP forwarding
+
     print("\n\n[-] Resetting ARP tables")
     time.sleep(0.5)
     print("[-] Session " + colored("<DISCONNECTED>", "red"))
